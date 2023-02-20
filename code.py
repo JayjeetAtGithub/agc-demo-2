@@ -7,6 +7,6 @@ conn=prestodb.dbapi.connect(
     schema='default',
 )
 cur = conn.cursor()
-cur.execute('show tables')
+cur.execute('select * from hep')
 rows = cur.fetchall()
 print(rows)
