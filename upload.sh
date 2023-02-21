@@ -1,5 +1,7 @@
 #!/bin/bash
 set -ex
 
-docker exec -it docker-presto-namenode-1 hadoop fs -mkdir /dataset
-docker exec -it docker-presto-namenode-1 hadoop fs -put /data/Run2012B_SingleMu-restructured-1000.4.parquet /dataset/
+for i in {1..64};
+do
+    docker exec -it docker-presto-namenode-1 hadoop fs -put /data/Run2012B_SingleMu-1000.${i}.parquet /dataset/
+done
