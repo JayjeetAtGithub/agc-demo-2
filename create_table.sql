@@ -91,4 +91,4 @@ CREATE TABLE hep (
 ) WITH (
     EXTERNAL_LOCATION = 'hdfs://namenode/dataset',
     FORMAT = 'PARQUET'
-);
+)
