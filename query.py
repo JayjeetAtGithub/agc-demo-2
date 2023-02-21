@@ -34,7 +34,7 @@ if __name__ == "__main__":
             create_function_sql = f.read()
         exec_query(conn, create_function_sql)
 
-    if len(sys.argv) == 3 and sys.argv[1] == '--query':
+    if len(sys.argv) == 3 and sys.argv[1] == 'query':
         with open(f'queries/{sys.argv[2]}.sql', 'r') as f:
             query_sql = f.read()
         

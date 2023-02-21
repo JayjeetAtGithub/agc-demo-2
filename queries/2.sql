@@ -1,0 +1,7 @@
+SELECT
+  mysql.default.HistogramBin(j.pt, 15, 60, 100) AS x,
+  COUNT(*) AS y
+FROM hep
+CROSS JOIN UNNEST(Jet) AS j
+GROUP BY mysql.default.HistogramBin(j.pt, 15, 60, 100)
+ORDER BY x
