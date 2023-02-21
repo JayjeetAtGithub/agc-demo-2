@@ -1,4 +1,3 @@
-DROP TABLE IF EXISTS hep;
 CREATE TABLE hep (
     run                 INTEGER,
     luminosityBlock     BIGINT,
