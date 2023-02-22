@@ -42,7 +42,12 @@ if __name__ == "__main__":
     if len(sys.argv) == 3 and sys.argv[1] == 'query':
         with open(f'queries/{sys.argv[2]}.sql', 'r') as f:
             query_sql = f.read()
-        
+
+        if sys.argv[3] == 'n':
+            query_sql = query_sql.replace('hep', 'hep_nested')
+        else:
+            query_sql = query_sql.replace('hep', 'hep_unnested')
+
         s = time.time()
         exec_query(conn, query_sql)
         e = time.time()
