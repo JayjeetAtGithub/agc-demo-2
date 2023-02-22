@@ -22,17 +22,12 @@ if __name__ == "__main__":
 
     if len(sys.argv) == 2 and sys.argv[1] == 'create':
         # drop exisiting table
-        exec_query(conn, 'DROP TABLE IF EXISTS hep_nested')
-        exec_query(conn, 'DROP TABLE IF EXISTS hep_unnested')
+        exec_query(conn, 'DROP TABLE IF EXISTS hep')
 
         #  create a new one
-        with open('create_table_nested.sql', 'r') as f:
+        with open('create_table.sql', 'r') as f:
             create_table_sql = f.read()
         exec_query(conn, create_table_sql)
-
-        with open('create_table_unnested.sql', 'r') as f:
-            create_table_unnested_sql = f.read()
-        exec_query(conn, create_table_unnested_sql)
         
         # create the common function
         with open('create_function.sql', 'r') as f:
@@ -42,11 +37,6 @@ if __name__ == "__main__":
     if len(sys.argv) == 3 and sys.argv[1] == 'query':
         with open(f'queries/{sys.argv[2]}.sql', 'r') as f:
             query_sql = f.read()
-
-        if sys.argv[3] == 'n':
-            query_sql = query_sql.replace('hep', 'hep_nested')
-        else:
-            query_sql = query_sql.replace('hep', 'hep_unnested')
 
         s = time.time()
         exec_query(conn, query_sql)
