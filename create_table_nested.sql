@@ -1,4 +1,4 @@
-CREATE TABLE hep (
+CREATE TABLE hep_nested (
     run                 INTEGER,
     luminosityBlock     BIGINT,
     event               BIGINT,
@@ -89,6 +89,6 @@ CREATE TABLE hep (
         idAntiMuMedium  BOOLEAN,
         idAntiMuTight   BOOLEAN))
 ) WITH (
-    EXTERNAL_LOCATION = 'hdfs://namenode/dataset',
+    EXTERNAL_LOCATION = 'hdfs://namenode/dataset_nested',
     FORMAT = 'PARQUET'
 )
